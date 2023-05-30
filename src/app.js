@@ -13,9 +13,13 @@ app.engine('handlebars', handlebars.engine());
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'handlebars')
 
+app.use('/', viewsRouter)
 const PORT = 8080
 
 const server = app.listen(PORT, () => console.log(`server on in port http://localhost:${PORT}`))
 
 const io = new Server(server)
 
+io.on('connection', socket => {
+    console.log('Nuevo cliente conectado')
+})
