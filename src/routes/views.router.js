@@ -8,6 +8,7 @@ const router = Router();
 router.get('/realtimeproducts', async (req, res) => {
   try {
     const products = await productManager.getProducts();
+    // Aqui envio mis products
     res.render('realTimeProducts', {
       products,
       style: 'index.css',

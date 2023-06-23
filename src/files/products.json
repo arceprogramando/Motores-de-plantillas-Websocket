@@ -1,10 +1,10 @@
 [
 	{
 		"id": 1,
-		"title": "Producto Nuevo",
-		"description": "Descripción del producto de ejemplo",
+		"title": "Celular",
+		"description": "Xiaomi redmi note 10",
 		"code": "ABC123",
-		"price": 19.99,
+		"price": 90000,
 		"status": true,
 		"stock": 10,
 		"category": "Electrónica",
@@ -15,10 +15,10 @@
 	},
 	{
 		"id": 2,
-		"title": "Producto de ejemplo",
-		"description": "Descripción del producto de ejemplo",
+		"title": "Microfono",
+		"description": "Microfono HyperX",
 		"code": "ABC123",
-		"price": 20.45,
+		"price": 200000,
 		"status": true,
 		"stock": 10,
 		"category": "Electrónica",
@@ -29,7 +29,21 @@
 	},
 	{
 		"id": 3,
-		"title": "Producto de ejemplo",
+		"title": "Tercer Producto X",
+		"description": "Descripción del producto de ejemplo",
+		"code": "ABC123",
+		"price": 300,
+		"status": true,
+		"stock": 10,
+		"category": "Electrónica",
+		"thumbnails": [
+			"ruta-imagen1.jpg",
+			"ruta-imagen2.jpg"
+		]
+	},
+	{
+		"id": 4,
+		"title": "Cuarto Producto X",
 		"description": "Descripción del producto de ejemplo",
 		"code": "ABC123",
 		"price": 300,

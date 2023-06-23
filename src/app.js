@@ -1,3 +1,4 @@
+// Servidor
 import express from 'express';
 import { Server } from 'socket.io';
 import { engine } from 'express-handlebars';
@@ -21,21 +22,18 @@ app.set('view engine', 'handlebars');
 // eslint-disable-next-line no-console
 const server = app.listen(app.get('port'), () => console.log(`Puerto encendido en el ${app.get('port')}:\n http://localhost:${app.get('port')}`));
 
-const io = new Server(server);
-const messages = [];
-
-io.on('connection', (socket) => {
-  // eslint-disable-next-line no-console
-  console.log('Nuevo cliente conectado');
-
-  socket.on('message', (data) => {
-    // eslint-disable-next-line no-console
-    console.log(data);
-    messages.push(data);
-    io.emit('messageLogs', messages);
-  });
-});
-
 app.use('/', productRouter);
 app.use('/', cartRouter);
 app.use('/', viewRouter);
+
+const io = new Server(server);
+
+io.on('connection', (socket) => {
+  // eslint-disable-next-line no-console
+  console.log('Saludo desde el Servidor');
+
+  socket.on('message', (data) => {
+    // eslint-disable-next-line no-console
+    console.log(data); // Imprimir el mensaje recibido desde el cliente
+  });
+});
