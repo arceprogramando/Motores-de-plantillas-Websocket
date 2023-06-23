@@ -1,41 +1,23 @@
-<div class="container h-100">
-  <div class="row h-100">
-    <div class="col-md-4 my-auto">
-      <form
-        class="card card-body rounded-0"
-        id="noteForm"
-        action="/upload"
-        method="POST"
-        enctype="multipart/form-data"
-      >
-        <h1 class="h3 mb-5">Enviar un Post A Products</h1>
-        <input
-          type="text"
-          id="title"
-          name="title"
-          placeholder="Write a title"
-          class="form-control rounded-0 mb-3"
-          required
-        />
-        <textarea
-          name="description"
-          id="description"
-          rows="2"
-          class="form-control rounded-0 mb-3"
-          placeholder="Write a description"
-          required
-        ></textarea>
-        <input type="file" name="image" />
-        <button class="btn btn-dark rounded-0" type="submit">Send</button>
-      </form>
+<div>
+  {{#each products}}
+    <div>
+      <p>{{this.title}}</p>
+      <p>{{this.description}}</p>
+      <p>{{this.price}}</p>
+      
     </div>
-    <div class="col-md-8 py-3">
-      <div id="notes"></div>
-    </div>
-    <p>Mis endpoints api son</p>
+  {{else}}
+    <p>No hay productos disponibles.</p>
+  {{/each}}
+  <p>Mis endpoints api son</p>
 
-    <p>Products: <a href="http://localhost:8080/products">products</a></p>
-    <p>Carts: <a href="http://localhost:8080/carts">carts</a></p>
-    <div></div>
-  </div>
+    <p>Products: <a href="http://localhost:{{port}}/api/products">products</a></p>
+    <p>Carts: <a href="http://localhost:{{port}}/api/carts">carts</a></p>
+
+    <p>RealTimeProducts <a href="http://localhost:{{port}}/realtimeproducts">RealTimeProducts</a></p>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

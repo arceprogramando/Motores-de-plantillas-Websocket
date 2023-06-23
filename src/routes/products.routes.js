@@ -7,10 +7,11 @@ const router = Router();
 
 const productManager = new ProductManager('./src/files/products.json');
 
-router.get('/', async (req, res) => {
+router.get('/api/products', async (req, res) => {
   try {
     const { limit } = req.query;
     const products = await productManager.getProducts();
+
     if (limit) {
       const limitedProducts = products.slice(0, limit);
       res.status(200).json(limitedProducts);
@@ -22,7 +23,23 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:pid', async (req, res) => {
+router.get('/', async (req, res) => {
+  try {
+    const products = await productManager.getProducts();
+    // eslint-disable-next-line no-console
+    // console.log(products);
+    const PORT = 8080;
+    res.render('home', {
+      products,
+      style: 'index.css',
+      port: PORT,
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener los productos' });
+  }
+});
+
+router.get('/api/products/:pid', async (req, res) => {
   try {
     const { pid } = req.params;
     const product = await productManager.getProductById(pid);
@@ -40,7 +57,7 @@ router.get('/:pid', async (req, res) => {
 });
 
 // eslint-disable-next-line consistent-return
-router.put('/:pid', async (req, res) => {
+router.put('/api/products/:pid', async (req, res) => {
   try {
     const { pid } = req.params;
     const { title, description, code, price, stock, category, thumbnails } =

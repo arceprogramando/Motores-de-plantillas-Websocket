@@ -7,7 +7,7 @@ const router = Router();
 
 // Lectura
 
-router.get('/', async (req, res) => {
+router.get('/api/carts', async (req, res) => {
   try {
     const { limit } = req.query;
     const products = await cartManager.getCarts();
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:cid', async (req, res) => {
+router.get('/api/carts/:cid', async (req, res) => {
   try {
     const { cid } = req.params;
     const cart = await cartManager.getCartsById(cid);
@@ -40,7 +40,7 @@ router.get('/:cid', async (req, res) => {
 });
 
 // Escritura
-router.post('/', async (req, res) => {
+router.post('/api/carts/', async (req, res) => {
   try {
     const { products } = req.body;
 
@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.post('/:cid/product/:pid', async (req, res) => {
+router.post('/api/carts/:cid/product/:pid', async (req, res) => {
   try {
     const cartId = req.params.cid;
     const productId = req.params.pid;
@@ -82,7 +82,7 @@ router.post('/:cid/product/:pid', async (req, res) => {
   }
 });
 
-router.delete('/:cid', async (req, res) => {
+router.delete('/api/carts/:cid', async (req, res) => {
   try {
     const { cid } = req.params;
     const cart = await cartManager.getCartsById(cid);
