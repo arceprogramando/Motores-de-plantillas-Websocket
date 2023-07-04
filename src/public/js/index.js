@@ -1,5 +1,6 @@
-/* eslint-disable no-console */
-// eslint-disable-next-line no-undef, no-unused-vars
+// Cliente
+
+// eslint-disable-next-line no-undef
 const socket = io();
 
 socket.emit('message', '!Hola, me estoy conectando desde un el cliente');
@@ -9,6 +10,7 @@ document.getElementById('noteForm').addEventListener('submit', async (e) => {
 
   const form = e.target;
   const formData = new FormData(form);
+  // eslint-disable-next-line no-console
   console.log(formData);
   try {
     const response = await fetch('/api/products', {
@@ -29,6 +31,7 @@ document.getElementById('noteForm').addEventListener('submit', async (e) => {
       throw new Error('Error al enviar el formulario');
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
     // eslint-disable-next-line no-undef
     Swal.fire('Error', 'Hubo un problema al agregar el producto', 'error');

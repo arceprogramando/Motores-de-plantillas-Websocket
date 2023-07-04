@@ -1,26 +1,27 @@
 {
-  "name": "arreglo-motores-de-plantillas",
+  "name": "arreglo_motores-de_plantillas_handlebars",
   "version": "1.0.0",
-  "description": "",
+  "description": "Finalizacion de arreglos de motores de plantillas + handlebars",
   "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Felipe Arce",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^7.0.7",
-    "nodemon": "^2.0.22",
-    "socket.io": "^4.6.2"
+    "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.7.1"
   },
   "devDependencies": {
-    "eslint": "^8.43.0",
+    "eslint": "^8.44.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.27.5"
+    "eslint-plugin-import": "^2.27.5",
+    "nodemon": "^2.0.22"
   }
 }

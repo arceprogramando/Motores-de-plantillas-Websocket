@@ -15,44 +15,24 @@
 	},
 	{
 		"id": 2,
-		"title": "Microfono",
-		"description": "Microfono HyperX",
-		"code": "ABC123",
-		"price": 200000,
-		"status": true,
-		"stock": 10,
-		"category": "Electrónica",
-		"thumbnails": [
-			"ruta-imagen1.jpg",
-			"ruta-imagen2.jpg"
-		]
+		"title": "Titutlo",
+		"description": "30000",
+		"code": "ABD-123",
+		"price": "34141",
+		"status": "true",
+		"stock": "10",
+		"category": "skate",
+		"thumbnails": "/src/public/upload/skate.jpg"
 	},
 	{
 		"id": 3,
-		"title": "Tercer Producto X",
-		"description": "Descripción del producto de ejemplo",
-		"code": "ABC123",
-		"price": 300,
-		"status": true,
-		"stock": 10,
-		"category": "Electrónica",
-		"thumbnails": [
-			"ruta-imagen1.jpg",
-			"ruta-imagen2.jpg"
-		]
-	},
-	{
-		"id": 4,
-		"title": "Cuarto Producto X",
-		"description": "Descripción del producto de ejemplo",
-		"code": "ABC123",
-		"price": 300,
-		"status": true,
-		"stock": 10,
-		"category": "Electrónica",
-		"thumbnails": [
-			"ruta-imagen1.jpg",
-			"ruta-imagen2.jpg"
-		]
+		"title": "Titutlo",
+		"description": "30000",
+		"code": "ABD-123",
+		"price": "34141",
+		"status": "true",
+		"stock": "10",
+		"category": "skate",
+		"thumbnails": "/upload/skate.jpg"
 	}
 ]

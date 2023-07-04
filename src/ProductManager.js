@@ -5,36 +5,38 @@ class ProductManager {
     this.filePath = filePath;
   }
 
-  // Lectura
+  // Lectura Product
   async getProducts() {
     try {
       const data = await fs.readFile(this.filePath, 'utf-8');
       const products = JSON.parse(data);
+
       return products;
     } catch (error) {
       throw new Error('Error al obtener los productos');
     }
   }
 
-  async getProductById(pid) {
+  async getProductsById(pid) {
     try {
       const data = await fs.readFile(this.filePath, 'utf-8');
       const products = JSON.parse(data);
       const product = products.find((p) => p.id === parseInt(pid, 10));
       return product;
     } catch (error) {
-      throw new Error('Error al obtener los productoss');
+      throw new Error('Error al obtener el producto');
     }
   }
 
   // Escritura Product
+
   async generateProductId() {
     try {
       const products = await this.getProducts();
       const nextProductId = products.length > 0 ? products.length + 1 : 1;
       return nextProductId;
     } catch (error) {
-      throw new Error('Error al generar el ID del Producto');
+      throw new Error('Error al generar el id del producto');
     }
   }
 
@@ -49,7 +51,8 @@ class ProductManager {
         this.filePath,
         JSON.stringify(updatedProducts, null, '\t'),
       );
-      return updatedProduct;
+
+      return updatedProducts;
     } catch (error) {
       throw new Error('Error al escribir el producto');
     }
@@ -70,10 +73,11 @@ class ProductManager {
       };
 
       products[index] = updatedProduct;
+
       await fs.writeFile(this.filePath, JSON.stringify(products, null, '\t'));
       return updatedProduct;
     } catch (error) {
-      throw new Error('Error al actualizar el producto.');
+      throw new Error('Error al actualizar el producto');
     }
   }
 
@@ -89,7 +93,7 @@ class ProductManager {
       products.splice(index, 1);
       await fs.writeFile(this.filePath, JSON.stringify(products, null, '\t'));
     } catch (error) {
-      throw new Error('Error al eliminar el producto');
+      throw new Error('Error al eliminar el producto', error);
     }
   }
 }
