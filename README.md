@@ -31,6 +31,7 @@ Estoy haciendo esto para poder tener un ejemplo de como hacer un readme de subid
 - Configurar el servidor para integrar el motor de plantillas Handlebars e instalar un servidor de socket.io al mismo.✔️
 - Crear una vista “home.handlebars” la cual contenga una lista de todos los productos agregados hasta el momento ✔️
 - demás, crear una vista “realTimeProducts.handlebars”, la cual vivirá en el endpoint “/realtimeproducts” en nuestro views router, ésta contendrá la misma lista de productos, sin embargo, ésta trabajará con websockets. ✔️
+- Uso de sweetalert✔️
 - Si se desea hacer la conexión de socket emits con HTTP, deberás buscar la forma de utilizar el servidor io de Sockets dentro de la petición POST. ¿Cómo utilizarás un emit dentro del POST?(sin terminar)
 
 
@@ -51,7 +52,7 @@ Para realizar este Ejercicio
 - [Nodemon] - Se instalo como paquete de desarrollo 
 - [express-handlebars] - Se instalo el motor de plantillas express-handlebars
 - [socket.io] - Se instalo socket.io para trabajar con websocket dentro de nuestro servidor
-
+- [sweetalert2] - Importo desde de su CDN link 
 Mi repositorio publico es  [arceprogramando][arceprogramando]
 en github.
 
@@ -115,3 +116,4 @@ http://localhost:8080/products/:id
   [Multer]:<https://www.npmjs.com/package/multer>
   [express-handlebars]:<https://www.npmjs.com/package/express-handlebars>
   [socket.io]:<https://socket.io/docs/v4/>
+  [sweetalert2]:<https://sweetalert2.github.io/v10.html>
