@@ -50,6 +50,7 @@ Para realizar este Ejercicio
 - [Nodemon] - Se instalo globalmente Nodemon
 - [Nodemon] - Se instalo como paquete de desarrollo 
 - [express-handlebars] - Se instalo el motor de plantillas express-handlebars
+- [socket.io] - Se instalo socket.io para trabajar con websocket dentro de nuestro servidor
 
 Mi repositorio publico es  [arceprogramando][arceprogramando]
 en github.
@@ -113,3 +114,4 @@ http://localhost:8080/products/:id
   [Nodemon]: <https://nodemon.io>
   [Multer]:<https://www.npmjs.com/package/multer>
   [express-handlebars]:<https://www.npmjs.com/package/express-handlebars>
+  [socket.io]:<https://socket.io/docs/v4/>
