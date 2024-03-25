@@ -15,6 +15,15 @@ class CartService {
       throw new Error(`Error al buscar las carts en el service: ${error.message}`);
     }
   };
+
+  getCartsById = async (cId) => {
+    try {
+      const getCartsById = await this.cartDao.getCartsById(cId);
+      return getCartsById;
+    } catch (error) {
+      throw new Error(`Error al buscar las carts con id ${cId} en el service: ${error.message}`);
+    }
+  };
 }
 
 export default CartService;

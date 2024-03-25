@@ -17,6 +17,17 @@ class CartController {
       return res.status(500).json({ error: error.message });
     }
   };
+
+  getCartsById = async (req, res) => {
+    try {
+      const { cId } = req.params;
+      const cart = await this.cartService.getCartsById(cId);
+      if (!cart) return res.status(404).json({ error: 'La Busqueda del id de la cart no existe' });
+      return res.json(cart);
+    } catch (error) {
+      return res.status(500).json({ error: 'Error al obtener la cart' });
+    }
+  };
 }
 
 export default CartController;
