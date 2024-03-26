@@ -101,6 +101,23 @@ class ProductController {
       return res.status(500).json({ error: `Error al actualizar el producto ${error.message}` });
     }
   };
+
+  deleteProduct = async (req, res) => {
+    try {
+      const { pId } = req.params;
+      const product = await this.productService.getProductsById(pId);
+
+      if (!product) {
+        return res.status(404).json({ error: 'El producto no existe' });
+      }
+
+      await this.productService.deleteProduct(pId);
+
+      return res.status(200).json({ status: 'success', message: `Producto con id ${pId} eliminado correctamente` });
+    } catch (error) {
+      return res.status(500).json({ error: `error al eliminar el producto ${error}` });
+    }
+  };
 }
 
 export default ProductController;

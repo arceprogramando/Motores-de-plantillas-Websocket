@@ -71,6 +71,21 @@ class ProductDao {
       throw new Error('Error al actualizar el producto');
     }
   }
+
+  async deleteProduct(pId) {
+    try {
+      const products = await this.getAllProducts();
+      const index = products.findIndex((p) => p.id === Number(pId));
+
+      if (index === -1) throw new Error('El producto no existe');
+
+      products.splice(index, 1);
+      await fs.writeFile(this.filePath, JSON.stringify(products, null, '\t'));
+      return products;
+    } catch (error) {
+      throw new Error('Error al eliminar el producto', error);
+    }
+  }
 }
 
 export default ProductDao;
