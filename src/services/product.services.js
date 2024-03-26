@@ -15,6 +15,15 @@ class ProductService {
       throw new Error(`Error al buscar todos los productos en el service: ${error.message}`);
     }
   };
+
+  createProduct = async (product) => {
+    try {
+      const createProduct = await this.productDao.createProduct(product);
+      return createProduct;
+    } catch (error) {
+      throw new Error(`Error al crear el producto  en el service: ${error.message}`);
+    }
+  };
 }
 
 export default ProductService;
