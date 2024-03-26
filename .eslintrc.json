@@ -10,8 +10,25 @@
     "sourceType": "module"
   },
   "rules": {
-    "import/extensions": ["error", "always"],
-    "no-console": "off",
-    "object-curly-newline": "off"
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "always"
+      }
+    ],
+    "linebreak-style": 0,
+    "no-underscore-dangle": 0,
+    "no-console": 0,
+    "padded-blocks": 0,
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": { "consistent": true, "multiline": true },
+        "ObjectPattern": { "consistent": true, "multiline": true },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+      }
+    ]
   }
 }
