@@ -1,24 +1,18 @@
 import { Router } from 'express';
 import ProductManager from '../ProductManager.js';
+import ViewController from '../controllers/view.controller.js';
 
 const productManager = new ProductManager('./src/files/products.json');
 
 const router = Router();
 
-router.get('/', async (req, res) => {
-  const findproducts = await productManager.getProducts();
-  const products = findproducts.map((product) => product);
-  res.render('home', {
-    products,
-    style: 'index.css',
-    port: 8080,
-  });
-});
+const viewController = new ViewController();
 
-router.get('/realtimeproducts', async (req, res) => {
+router.get('/', viewController.viewIndex);
+
+router.get('/realtimeproducts', async (_req, res) => {
   try {
     const products = await productManager.getProducts();
-    // Aqui envio mis products
     res.render('realTimeProducts', {
       products,
       style: 'index.css',

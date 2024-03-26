@@ -3,7 +3,7 @@ import { Server } from 'socket.io';
 import { engine } from 'express-handlebars';
 import __dirname from './utils.js';
 import productRouter from './routes/products.routes.js';
-import viewsRouter from './routes/views.router.js';
+import viewsRouter from './routes/views.routes.js';
 import cartsRouter from './routes/carts.routes.js';
 
 const app = express();

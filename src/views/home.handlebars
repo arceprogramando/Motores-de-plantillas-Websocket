@@ -1,23 +1,28 @@
-<div>
-  
-  <p>Mis endpoints api son</p>
 
-    <p>Products: <a href="http://localhost:{{port}}/api/products">products</a></p>
-    <p>Carts: <a href="http://localhost:{{port}}/api/carts">carts</a></p>
+<h1>Endpoints api</h1>
 
-    <p>RealTimeProducts <a href="http://localhost:{{port}}/realtimeproducts">RealTimeProducts</a></p>
-    {{#each products}}
-    <div>
-      <p>{{this.title}}</p>
-      <p>{{this.description}}</p>
-      <p>{{this.price}}</p>
-      
-    </div>
-  {{else}}
-    <p>No hay productos disponibles.</p>
-  {{/each}}
-</div>
+<p>Api de Products:
+  <a href="http://localhost:{{port}}/api/products">products</a>
+</p>
+<p>Api de Carts:
+  <a href="http://localhost:{{port}}/api/carts">carts</a>
+</p>
 
+<p>Agregar productos en tiempo real
+  <a href="http://localhost:{{port}}/realtimeproducts">Agregar productos</a>
+</p>
+<h2>Productos Agregados</h2>
+{{#each products}}
+
+<section class="card" style="width: 18rem;">
+  <p>Titulo:{{this.title}}</p>
+  <p>Descripción:{{this.description}}</p>
+  <p>Precio: {{this.price}}</p>
+
+</section>
+{{else}}
+<p>No hay productos disponibles.</p>
+{{/each}}
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/js/index.js"></script>
