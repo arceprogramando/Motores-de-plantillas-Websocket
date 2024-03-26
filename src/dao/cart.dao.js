@@ -80,16 +80,15 @@ class CartManager {
 
   async deleteCart(cId) {
     try {
-      const carts = await this.getCarts();
-      const index = carts.findIndex((c) => c.id === parseInt(cId, 10));
+      const carts = await this.getAllCarts();
+      const index = carts.findIndex((c) => c.id === Number(cId));
 
-      if (index === -1) {
-        throw new Error('El id de la Cart no  existe');
-      }
+      if (index === -1) throw new Error('El id de la Cart no  existe');
 
       carts.splice(index, 1);
 
-      await fs.writeFile(this.filepath, JSON.stringify(carts, null, '\t'));
+      await fs.writeFile(this.filePath, JSON.stringify(carts, null, '\t'));
+      return carts;
     } catch (error) {
       throw new Error('Error al eliminar la cart');
     }

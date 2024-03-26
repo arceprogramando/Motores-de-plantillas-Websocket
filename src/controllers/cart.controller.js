@@ -49,6 +49,33 @@ class CartController {
       return res.status(500).json({ error: 'Error al crear el carrito' });
     }
   };
+
+  addQuantityProductInCart = async (req, res) => {
+    try {
+      const { cId, pId } = req.params;
+      const { quantity } = req.body;
+
+      const updatedCart = await this.cartService.addQuantityProductInCart(cId, pId, quantity);
+
+      res.status(200).json(updatedCart);
+    } catch (error) {
+      res.status(500).json({ error: `Error al actualizar el carrito ${error.message}` });
+    }
+  };
+
+  deleteCart = async (req, res) => {
+    try {
+      const { cId } = req.params;
+      const cart = await this.cartService.getCartsById(cId);
+
+      if (!cart) return res.status(404).json({ error: 'La cart no existe' });
+
+      await this.cartService.deleteCart(cId);
+      return res.json({ status: 'success', message: `La cart con id ${cId} sido eliminada` });
+    } catch (error) {
+      return res.status(500).json({ error: 'Error al eliminar la cart ' });
+    }
+  };
 }
 
 export default CartController;
