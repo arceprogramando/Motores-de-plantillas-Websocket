@@ -30,7 +30,16 @@ class ProductService {
       const getProductsById = await this.productDao.getProductsById(pId);
       return getProductsById;
     } catch (error) {
-      throw new Error(`Error al buscar el producto   el producto con id ${pId} en el service: ${error.message}`);
+      throw new Error(`Error al buscar el producto con el id ${pId} en el service: ${error.message}`);
+    }
+  };
+
+  updateProduct = async (pId, updatedProductData) => {
+    try {
+      const updateProduct = await this.productDao.updateProduct(pId, updatedProductData);
+      return updateProduct;
+    } catch (error) {
+      throw new Error(`Error al actualizar el producto con el id ${pId} en el service: ${error.message}`);
     }
   };
 }

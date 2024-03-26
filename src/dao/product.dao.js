@@ -50,6 +50,27 @@ class ProductDao {
       throw new Error('Error al obtener el producto');
     }
   }
+
+  async updateProduct(pId, updatedProductData) {
+    try {
+      const products = await this.getAllProducts();
+      const index = products.findIndex((p) => p.id === Number(pId));
+
+      if (index === -1) throw new Error('El producto no existe');
+
+      const updatedProduct = {
+        ...products[index],
+        ...updatedProductData,
+      };
+
+      products[index] = updatedProduct;
+
+      await fs.writeFile(this.filePath, JSON.stringify(products, null, '\t'));
+      return updatedProduct;
+    } catch (error) {
+      throw new Error('Error al actualizar el producto');
+    }
+  }
 }
 
 export default ProductDao;
