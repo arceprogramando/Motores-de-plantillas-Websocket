@@ -39,6 +39,17 @@ class ProductDao {
       throw new Error('Error al escribir el producto');
     }
   }
+
+  async getProductsById(pId) {
+    try {
+      const data = await fs.readFile(this.filePath, 'utf-8');
+      const products = JSON.parse(data);
+      const product = products.find((p) => p.id === Number(pId));
+      return product;
+    } catch (error) {
+      throw new Error('Error al obtener el producto');
+    }
+  }
 }
 
 export default ProductDao;

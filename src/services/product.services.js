@@ -24,6 +24,15 @@ class ProductService {
       throw new Error(`Error al crear el producto  en el service: ${error.message}`);
     }
   };
+
+  getProductsById = async (pId) => {
+    try {
+      const getProductsById = await this.productDao.getProductsById(pId);
+      return getProductsById;
+    } catch (error) {
+      throw new Error(`Error al buscar el producto   el producto con id ${pId} en el service: ${error.message}`);
+    }
+  };
 }
 
 export default ProductService;

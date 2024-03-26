@@ -56,6 +56,19 @@ class ProductController {
       return res.status(500).json({ error: `Error al crear el producto ${error}` });
     }
   };
+
+  getProductsById = async (req, res) => {
+    try {
+      const { pId } = req.params;
+      const product = await this.productService.getProductsById(pId);
+
+      if (!product) res.status(404).json({ error: 'El producto no existe' });
+
+      return res.json(product);
+    } catch (error) {
+      return res.status(500).json({ error: 'Error al obtener el producto con el id solicitado' });
+    }
+  };
 }
 
 export default ProductController;
