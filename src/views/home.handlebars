@@ -1,28 +1,35 @@
+<div class='container'>
+  <h1 class='text-center text-capitalize bg-primary py-4 text-up'>Endpoints api</h1>
 
-<h1>Endpoints api</h1>
+  <p>Api de Products:
+    <a href='http://localhost:{{port}}/api/products'>products</a>
+  </p>
+  <p>Api de Carts:
+    <a href='http://localhost:{{port}}/api/carts'>carts</a>
+  </p>
 
-<p>Api de Products:
-  <a href="http://localhost:{{port}}/api/products">products</a>
-</p>
-<p>Api de Carts:
-  <a href="http://localhost:{{port}}/api/carts">carts</a>
-</p>
+  <div class='container'>
 
-<p>Agregar productos en tiempo real
-  <a href="http://localhost:{{port}}/addproducts">Agregar productos</a>
-</p>
-<h2>Productos Agregados</h2>
-{{#each products}}
+    <a href='http://localhost:{{port}}/addproducts' class='list-group-item list-group-item-action d-flex justify-content-between align-items-center'>
+      <span>Agregar productos en tiempo real
+        <span class='btn btn-success btn-sm'>Agregar</span>
+      </span>
 
-<section class="card" style="width: 18rem;">
-  <p>Titulo:{{this.title}}</p>
-  <p>Descripción:{{this.description}}</p>
-  <p>Precio: {{this.price}}</p>
+    </a>
+  </div>
+  <h2>Productos Agregados</h2>
+  {{#each products}}
 
-</section>
-{{else}}
-<p>No hay productos disponibles.</p>
-{{/each}}
+    <section class='card' style='width: 18rem;'>
+      <p>Titulo:{{this.title}}</p>
+      <p>Descripción:{{this.description}}</p>
+      <p>Precio: {{this.price}}</p>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/js/index.js"></script>
+    </section>
+  {{else}}
+    <p>No hay productos disponibles.</p>
+  {{/each}}
+</div>
+
+<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+<script src='/js/index.js'></script>

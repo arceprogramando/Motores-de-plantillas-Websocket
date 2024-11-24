@@ -20,9 +20,7 @@ class ProductController {
     try {
       const { title, description, code, price, status, stock, category } = req.body;
 
-      let thumbnails = null;
-
-      if (req.file) thumbnails = `/upload/${req.file.filename}`;
+      console.log(req.body);
 
       if (!title) return res.status(400).json({ error: 'El título es obligatorio' });
 
@@ -36,7 +34,6 @@ class ProductController {
 
       if (!category) return res.status(400).json({ error: 'La categoría es obligatoria' });
 
-      if (!thumbnails) return res.status(400).json({ error: 'El thumbnails es obligatorio' });
 
       const product = {
         title,
@@ -46,8 +43,9 @@ class ProductController {
         status,
         stock,
         category,
-        thumbnails,
       };
+
+      console.log(product);
 
       const createdProduct = await this.productService.createProduct(product);
 

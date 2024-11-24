@@ -18,9 +18,7 @@ app.engine('handlebars', engine());
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'handlebars');
 
-const server = app.listen(app.get('port'), () => {
-  console.log(`=Encendido servidor en puerto ${app.get('port')}= \n====== http://localhost:${app.get('port')}/ =====`);
-});
+const server = app.listen(app.get('port'), () => console.log(`===== http://localhost:${app.get('port')}/ =====`));
 
 app.use('/api/products', productRouter);
 app.use('/', viewsRouter);
@@ -29,7 +27,6 @@ app.use('/api/carts', cartsRouter);
 const io = new Server(server);
 
 io.on('connection', (socket) => {
-  console.log('Saludo desde el servidor');
   socket.on('message', (data) => {
     console.log(data);
   });

@@ -7,7 +7,16 @@
 		"price": "34141",
 		"status": "true",
 		"stock": "10",
-		"category": "skate",
-		"thumbnails": "/upload/skate.jpg"
+		"category": "skate"
+	},
+	{
+		"id": 2,
+		"title": "aefaf",
+		"description": "afea",
+		"code": "333",
+		"price": "333",
+		"status": "true",
+		"stock": "4444",
+		"category": "aaa"
 	}
 ]

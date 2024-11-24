@@ -9,13 +9,16 @@ document.getElementById('noteForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const form = e.target;
-  const formData = new FormData(form);
-  // eslint-disable-next-line no-console
-  console.log(formData);
   try {
-    const response = await fetch('/api/products', {
+    const formData = new FormData(form);
+    const jsonData = Object.fromEntries(formData);
+
+    const response = await fetch('http://localhost:8080/api/products', {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jsonData),
     });
 
     if (response.ok) {

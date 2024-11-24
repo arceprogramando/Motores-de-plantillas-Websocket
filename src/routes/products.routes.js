@@ -8,7 +8,7 @@ const productController = new ProductController();
 
 router.get('/', productController.getAllProducts);
 
-router.post('/', uploadMiddleware, productController.createProduct);
+router.post('/', productController.createProduct);
 
 router.get('/:pId', productController.getProductsById);
 
